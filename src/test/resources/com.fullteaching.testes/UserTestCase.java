@@ -1,4 +1,4 @@
-package TesteUnitario;
+package com.fullteaching.testes;
 
 import static org.junit.jupiter.api.Assertions.*;
 

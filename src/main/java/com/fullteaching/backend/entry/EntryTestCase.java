@@ -2,22 +2,30 @@ package com.fullteaching.backend.entry;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.rometools.rome.feed.atom.Entry;
+import com.fullteaching.backend.comment.Comment;
+import com.fullteaching.backend.entry.Entry;
 import com.fullteaching.backend.user.User;
 
 class EntryTestCase {
 
-	private com.fullteaching.backend.user.User studentA;
-	private com.fullteaching.backend.entry.Entry sampleEntry;
+	private User studentA;
+	private Entry sampleEntry;
+	private Entry simpleEntry;
+	private Comment commentA;
 	
 	@BeforeEach
 	void setUp()
 	{
 		studentA = new User("Magno Lomardo", "pass", null, "Student");
-		sampleEntry = new com.fullteaching.backend.entry.Entry("Olá Mundo!", Long.MIN_VALUE, studentA);
+		sampleEntry = new Entry("Olá Mundo!", Long.MIN_VALUE, studentA);
+		simpleEntry = new Entry();
+		commentA = new Comment("Que horas são?", Long.MIN_VALUE, studentA);
 	}
 	
 	@Test
@@ -42,16 +50,57 @@ class EntryTestCase {
 	void testEntryIntegrity()
 	{
 		assertNotNull(sampleEntry.getTitle());
-		assertTrue(sampleEntry.getTitle().length() > 0);
 		assertNotNull(sampleEntry.getDate());
 		assertNotNull(sampleEntry.getUser());
 	}
 	
 	@Test
-	void testHasComments()
+	void testGetComments()
 	{
 		assertNotNull(sampleEntry.getComments());
-		assertTrue(sampleEntry.getComments().size() > 0);
+	}
+	
+	@Test
+	void testSetId()
+	{
+		simpleEntry.setId(Long.MAX_VALUE);
+		assertEquals(simpleEntry.getId(), Long.MAX_VALUE);
+	}
+	
+	@Test
+	void testSetTitle()
+	{
+		simpleEntry.setTitle("Exemplo");
+		assertEquals(simpleEntry.getTitle(), "Exemplo");
+	}
+	
+	@Test
+	void testSetDate()
+	{
+		simpleEntry.setDate(Long.MAX_VALUE);
+		assertEquals(simpleEntry.getDate(), Long.MAX_VALUE);
+	}
+	
+	@Test
+	void testSetUser()
+	{
+		simpleEntry.setUser(studentA);
+		assertEquals(simpleEntry.getUser(), studentA);
+	}
+	
+	@Test
+	void testSetComments()
+	{
+		Comment a[] = new Comment[] {commentA};
+		List<Comment> comments = Arrays.asList(a);
+		simpleEntry.setComments(comments);
+		assertEquals(simpleEntry.getComments(), comments);
+	}
+	
+	@Test
+	void testToString()
+	{
+		assertNotNull(sampleEntry.toString());
 	}
 
 }

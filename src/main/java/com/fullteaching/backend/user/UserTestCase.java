@@ -1,9 +1,10 @@
-package com.fullteaching.testes;
+package com.fullteaching.backend.user;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -33,9 +34,9 @@ class UserTestCase {
 	@Test
 	void testGetPasswordHash()
 	{
-		assertEquals(studentA.getPasswordHash, new BCryptPasswordEncoder().encode("pass"));
-		assertEquals(studentB.getPasswordHash, new BCryptPasswordEncoder().encode("pass"));
-		assertEquals(teacher.getPasswordHash, new BCryptPasswordEncoder().encode("pass"));
+		assertEquals(studentA.getPasswordHash(), new BCryptPasswordEncoder().encode("pass"));
+		assertEquals(studentB.getPasswordHash(), new BCryptPasswordEncoder().encode("pass"));
+		assertEquals(teacher.getPasswordHash(), new BCryptPasswordEncoder().encode("pass"));
 	}
 	
 	@Test

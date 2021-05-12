@@ -1,10 +1,12 @@
-package com.fullteaching.testes;
+package com.fullteaching.backend.course;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.sun.jna.platform.win32.Netapi32Util.User;
+import com.fullteaching.backend.coursedetails.CourseDetails;
+import com.fullteaching.backend.user.User;
 
 class CourseTestCase {
 	

@@ -1,7 +1,8 @@
-package com.fullteaching.testes;
+package com.fullteaching.backend.forum;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ForumTestCase {
@@ -27,9 +28,9 @@ class ForumTestCase {
 	void testHasEntries()
 	{
 		assertNotNull(forumA.getEntries());
-		assertTrue(forumA.getEntries().size > 0);
+		assertTrue(forumA.getEntries().size() > 0);
 		assertNotNull(forumB.getEntries());
-		assertTrue(forumB.getEntries().size > 0);
+		assertTrue(forumB.getEntries().size() > 0);
 	}
 
 }

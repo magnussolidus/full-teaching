@@ -1,11 +1,12 @@
-package com.fullteaching.testes;
+package com.fullteaching.backend.comment;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.fullteaching.backend.comment.Comment;
-import com.sun.jna.platform.win32.Netapi32Util.User;
+import com.fullteaching.backend.user.User;
 
 class CommentTestCase {
 
@@ -20,14 +21,14 @@ class CommentTestCase {
 		studentA = new User("Magno Lomardo", "pass", null, "Student");
 		studentB = new User("Bacharelando SI", "pass", null, "Student");
 		commentA = new Comment("Que horas são?", Long.MIN_VALUE, studentA);
-		answerA = new Comment("Hora de aventura!", Long.MAX_VALUE, studentB, commentA);)
+		answerA = new Comment("Hora de aventura!", Long.MAX_VALUE, studentB, commentA);
 	}
 	
 	@Test
-	void testValidMessage(Comment sample) 
+	void testValidMessage() 
 	{
-		assertNotNull(sample.getMessage());
-		assertTrue(sample.getMessage().length() > 0);
+		assertNotNull(commentA.getMessage());
+		assertTrue(commentA.getMessage().length() > 0);
 	}
 	
 	@Test
